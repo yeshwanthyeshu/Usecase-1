@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="modal">   
+    <form [formGroup] ='loginform'name="loginform" class="modal-content" (ngSubmit) = "onSubmit()">
+            <div class="imgcontainer">
+                    <img src="../../assets/logo.svg" alt="Avatar" class="avatar">
+            </div>
+            <div class="signlabel">
+                Sign In
+            </div>
+            <div>
+                
+                <input type="email" placeholder="Enter Email ID"  [ngModel]="email" name="email"  formControlName="email" >
+                <span class="invalidmessage" *ngIf="loginform.controls.email.touched && !loginform.controls.email.valid ">Please enter a valid email address</span>
+                
+                <input type="password" placeholder="Enter Password" name="password" formControlName="password" required>
+                <span class="invalidmessage" *ngIf="loginform.controls.password.touched && !loginform.controls.password.valid ">Password is required</span>
+                
+            </div>
+            <div>
+                    
+                <input type="submit" [disabled]="!loginform.valid" value="Sign In"/>
+                <div class= "forgotpassword"><a>Forgot Password?</a></div>
+            </div>
+    </form>
+    
+</div>
